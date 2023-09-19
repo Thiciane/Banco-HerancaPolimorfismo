@@ -5,12 +5,11 @@ public class Empresa : Banco
     public double LimiteEmprestimo { get; set; }
     public double TotalEmprestimo { get; set; }
 
-    public Empresa(int taxaAnuidade, double limiteEmprestimo, double totalEmprestimo,
+    public Empresa(int taxaAnuidade, double limiteEmprestimo,
         int numeroConta, string agenciaConta, string titularConta, double saldoConta) : base( numeroConta,  agenciaConta,  titularConta, saldoConta)
     {
         this.TaxaAnuidade = taxaAnuidade;
         this.LimiteEmprestimo = limiteEmprestimo;
-        this.TotalEmprestimo = totalEmprestimo;
     }
 
     public double Emprestimo(double valor)
