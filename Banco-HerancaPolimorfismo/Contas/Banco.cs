@@ -14,14 +14,17 @@
     }
  
 
-    public void Saque(double valor)
+    public virtual double Saque(double valor)
     {
         if (valor < SaldoConta) 
         { SaldoConta -= valor; }
+        return SaldoConta;
     }
-    public void Deposito(double valor)
+    public virtual double Deposito(double valor)
     {
         SaldoConta += valor;
+        return SaldoConta;
+
     }
 }
 

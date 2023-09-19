@@ -12,14 +12,14 @@
         this.InstituicaoEnsino = instituicaoEnsino;
     }
 
-    public void Sacar(double valor)
+    public override double Saque(double valor)
     {
         if (valor > LimiteChequeEspecial)
         {
             Console.WriteLine("O valor de empréstimo não pode ser concedido!");
         }
         else { SaldoConta -= valor;
-            Console.WriteLine(SaldoConta);        
         }
+        return SaldoConta;
     }
 }

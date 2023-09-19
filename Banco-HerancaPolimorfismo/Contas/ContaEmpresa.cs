@@ -13,9 +13,9 @@ public class Empresa : Banco
         this.TotalEmprestimo = totalEmprestimo;
     }
 
-    public void Emprestimo(double valor)
+    public double Emprestimo(double valor)
     {
-        if (valor > LimiteEmprestimo) { 
+        if (valor > LimiteEmprestimo - TotalEmprestimo) { 
             Console.WriteLine("O valor de empréstimo não pode ser concedido!"); 
         }
         else { 
@@ -23,17 +23,21 @@ public class Empresa : Banco
             TotalEmprestimo += valor; 
             Console.WriteLine("O empréstimo foi realizado com sucesso!"); 
         }
-        Console.WriteLine(SaldoConta);
+        return(SaldoConta);
     }
-    public void Saque(double valor)
+    public override double Saque(double valor)
     {
         if (valor > SaldoConta)
         {
             Console.WriteLine("O valor de saque não pode ser concedido!");
         }
-        else if(valor > 5000) {SaldoConta -= valor+5;
-            Console.WriteLine(SaldoConta);
-        }
+        else {
+            if (SaldoConta >= 5000)
+            {
+                SaldoConta -= valor + 5;
 
+            }
+        }
+        return (SaldoConta);
     }
 }
